@@ -270,7 +270,7 @@
   <div class="section-inner">
     <div class="section-label">The Real Cost of Voicemail</div>
     <h2>Your competitors are picking up<br>the calls you're sending to voicemail</h2>
-    <p class="section-sub">Every missed call is a lost job. Here's what the numbers actually look like for a typical HVAC contractor:</p>
+    <p class="section-sub">Every missed call is a lost job. Here's what the numbers actually look like for a typical home service contractor:</p>
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-number">27%</div>
@@ -283,8 +283,8 @@
         <div class="pain-desc">Of callers who reach voicemail, 85% hang up and call the next contractor on the list.</div>
       </div>
       <div class="pain-card">
-        <div class="pain-number">$2,800</div>
-        <div class="pain-label">Average HVAC Job Value</div>
+        <div class="pain-number">$425–$12K</div>
+        <div class="pain-label">Average Job Value Per Trade</div>
         <div class="pain-desc">Each missed call that never comes back costs you the full job value — not just the lead.</div>
       </div>
       <div class="pain-card">
@@ -575,16 +575,17 @@ function Slider({ label, value, onChange, min, max, step = 1, unit = "", hint })
 }
 
 function Calculator() {
-  const [industry, setIndustry] = useState("hvac");
-  const [callsPerDay, setCallsPerDay] = useState(12);
-  const [missRate, setMissRate] = useState(28);
-  const [avgJob, setAvgJob] = useState(2800);
+  const [industry, setIndustry] = useState("");
+  const [callsPerDay, setCallsPerDay] = useState(10);
+  const [missRate, setMissRate] = useState(27);
+  const [avgJob, setAvgJob] = useState(1000);
   const [email, setEmail] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [showEmailGate, setShowEmailGate] = useState(false);
   const [showResults, setShowResults] = useState(false);
 
   useEffect(() => {
+    if (!industry) return;
     const d = INDUSTRY_DEFAULTS[industry];
     setCallsPerDay(d.callsPerDay); setMissRate(d.missRate); setAvgJob(d.avgJob);
   }, [industry]);
@@ -638,7 +639,9 @@ function Calculator() {
           value: industry, onChange: e => setIndustry(e.target.value),
           style: { width: "100%", padding: "12px 14px", fontSize: 15, borderRadius: 8, border: "2px solid #d5dbe3", fontFamily: "'DM Sans', Arial, sans-serif", fontWeight: 500, outline: "none", cursor: "pointer" }
         },
-          Object.entries(INDUSTRY_DEFAULTS).map(([k, v]) => React.createElement("option", { key: k, value: k }, v.name))
+          [React.createElement("option", { key: "", value: "", disabled: true }, "— Select your trade —")].concat(
+            Object.entries(INDUSTRY_DEFAULTS).map(([k, v]) => React.createElement("option", { key: k, value: k }, v.name))
+          )
         )
       ),
       React.createElement(Slider, { label: "Calls per day", value: callsPerDay, onChange: setCallsPerDay, min: 1, max: 50, hint: "Include all inbound: leads, customers, inquiries" }),
