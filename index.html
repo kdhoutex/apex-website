@@ -1,159 +1,742 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Development Group USA | Premium Newsletter Infrastructure</title>
-    <meta name="description" content="We help creators launch, automate, and scale premium newsletter systems with clean setup, smart automations, and growth-focused infrastructure.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Receptionist for HVAC & Home Service Contractors | Apex Development Group USA</title>
+  <meta name="description" content="Never miss another lead. AI-powered phone answering for HVAC, plumbing, electrical, and roofing contractors in Houston, TX. 24/7. Under your brand name. Starting at $149/mo." />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #1B3A5C;
+      --blue:   #3366FF;
+      --orange: #C45A2D;
+      --dark:   #0f1e2e;
+      --light:  #f4f7fb;
+      --white:  #ffffff;
+      --gray:   #6b7a8a;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', Arial, sans-serif; background: var(--white); color: var(--navy); line-height: 1.6; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,30,46,0.97); backdrop-filter: blur(10px);
+      padding: 0 24px; display: flex; align-items: center; justify-content: space-between;
+      height: 64px; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-brand { font-size: 15px; font-weight: 800; color: #fff; letter-spacing: 0.04em; line-height: 1.2; }
+    .nav-brand span { color: var(--orange); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--orange); color: #fff; padding: 9px 20px; border-radius: 8px;
+      font-size: 13px; font-weight: 700; text-decoration: none; letter-spacing: 0.02em;
+      transition: background .2s, transform .2s;
+    }
+    .nav-cta:hover { background: #a8441e; transform: translateY(-1px); }
+    @media (max-width: 680px) { .nav-links { display: none; } }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(140deg, var(--dark) 0%, #1a3350 60%, #1e3a5c 100%);
+      padding: 80px 24px 96px; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.035) 1px, transparent 0);
+      background-size: 36px 36px;
+    }
+    .hero-badge {
+      display: inline-block; background: rgba(196,90,45,0.18); border: 1px solid rgba(196,90,45,0.35);
+      color: #e8a87c; font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; border-radius: 20px; padding: 5px 16px; margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px); font-weight: 800; color: #fff;
+      line-height: 1.15; margin-bottom: 20px; max-width: 760px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero p {
+      font-size: clamp(16px, 2.5vw, 19px); color: #8ca8c4;
+      max-width: 560px; margin: 0 auto 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange), #a8441e); color: #fff;
+      padding: 15px 32px; border-radius: 10px; font-size: 16px; font-weight: 700;
+      text-decoration: none; letter-spacing: 0.02em; transition: all .2s;
+      box-shadow: 0 6px 24px rgba(196,90,45,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(196,90,45,0.45); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.25);
+      padding: 15px 32px; border-radius: 10px; font-size: 16px; font-weight: 700;
+      text-decoration: none; letter-spacing: 0.02em; transition: all .2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+    .hero-sub { margin-top: 28px; font-size: 13px; color: rgba(255,255,255,0.4); }
+    .hero-sub strong { color: rgba(255,255,255,0.7); }
+
+    /* ── PROOF BAR ── */
+    .proof-bar {
+      background: #fff; border-bottom: 1px solid #e8edf3;
+      padding: 18px 24px; text-align: center;
+    }
+    .proof-bar p { font-size: 13px; color: var(--gray); letter-spacing: 0.02em; }
+    .proof-bar strong { color: var(--navy); }
+
+    /* ── SECTION ── */
+    section { padding: 80px 24px; }
+    .section-inner { max-width: 1060px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--orange); margin-bottom: 12px;
+    }
+    h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--gray); max-width: 560px; margin-bottom: 48px; }
+
+    /* ── PAIN NUMBERS ── */
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
+    .pain-card {
+      background: var(--light); border-radius: 14px; padding: 32px 24px;
+      border-left: 4px solid var(--orange); position: relative;
+    }
+    .pain-number { font-size: 44px; font-weight: 800; color: var(--orange); line-height: 1; margin-bottom: 8px; }
+    .pain-label { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .pain-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+    /* ── HOW IT WORKS ── */
+    .how-bg { background: var(--light); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin-top: 48px; }
+    .step { text-align: center; }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 50%; background: var(--navy); color: #fff;
+      font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+    }
+    .step h3 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    /* ── CALCULATOR SECTION ── */
+    .calc-section { background: var(--dark); padding: 80px 24px; }
+    .calc-section h2 { color: #fff; }
+    .calc-section .section-sub { color: #8ca8c4; }
+    .calc-frame { max-width: 580px; margin: 0 auto; }
+
+    /* ── Calculator widget (inline React) ── */
+    #calc-root { margin-top: 8px; }
+
+    /* ── PRICING ── */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 48px; }
+    .pricing-card {
+      background: #fff; border-radius: 16px; padding: 36px 28px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 2px solid #e8edf3;
+      position: relative; transition: transform .2s, box-shadow .2s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .pricing-card.featured { border-color: var(--orange); }
+    .featured-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--orange); color: #fff; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; border-radius: 20px; padding: 4px 16px;
+      white-space: nowrap;
+    }
+    .price-tier { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); margin-bottom: 12px; }
+    .price-amount { font-size: 44px; font-weight: 800; color: var(--navy); line-height: 1; }
+    .price-amount span { font-size: 16px; font-weight: 600; color: var(--gray); }
+    .price-desc { font-size: 14px; color: var(--gray); margin: 10px 0 24px; }
+    .price-features { list-style: none; margin-bottom: 28px; }
+    .price-features li { font-size: 14px; color: #4a5a6a; padding: 7px 0; border-bottom: 1px solid #f0f4f8; display: flex; align-items: flex-start; gap: 8px; }
+    .price-features li::before { content: '✓'; color: var(--orange); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    .price-cta {
+      display: block; text-align: center; padding: 14px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; text-decoration: none; transition: all .2s;
+    }
+    .price-cta-outline {
+      border: 2px solid var(--navy); color: var(--navy);
+    }
+    .price-cta-outline:hover { background: var(--navy); color: #fff; }
+    .price-cta-filled { background: var(--orange); color: #fff; box-shadow: 0 4px 16px rgba(196,90,45,0.3); }
+    .price-cta-filled:hover { background: #a8441e; transform: translateY(-1px); }
+
+    /* ── FREE AUDIT CTA ── */
+    .audit-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+      padding: 80px 24px; text-align: center;
+    }
+    .audit-section h2 { color: #fff; margin-bottom: 14px; }
+    .audit-section p { color: #8ca8c4; font-size: 17px; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .audit-form {
+      display: flex; gap: 12px; max-width: 460px; margin: 0 auto; flex-wrap: wrap; justify-content: center;
+    }
+    .audit-form input {
+      flex: 1; min-width: 200px; padding: 14px 18px; border-radius: 10px; border: none;
+      font-size: 15px; font-family: 'DM Sans', sans-serif; outline: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .audit-form button {
+      background: var(--orange); color: #fff; padding: 14px 28px; border-radius: 10px;
+      border: none; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.02em; transition: all .2s; box-shadow: 0 4px 16px rgba(196,90,45,0.4);
+    }
+    .audit-form button:hover { background: #a8441e; transform: translateY(-1px); }
+    .audit-note { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 16px; }
+
+    /* ── TRUST / FOUNDER ── */
+    .trust-section { background: var(--light); }
+    .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    @media (max-width: 680px) { .trust-grid { grid-template-columns: 1fr; } }
+    .founder-block { background: #fff; border-radius: 16px; padding: 36px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+    .founder-name { font-size: 18px; font-weight: 700; color: var(--navy); }
+    .founder-title { font-size: 13px; color: var(--orange); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .founder-bio { font-size: 14px; color: var(--gray); line-height: 1.7; }
+    .trust-items { display: flex; flex-direction: column; gap: 20px; }
+    .trust-item { display: flex; gap: 16px; align-items: flex-start; }
+    .trust-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .trust-text h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .trust-text p { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 720px; margin: 40px auto 0; }
+    details {
+      border-bottom: 1px solid #e8edf3; padding: 20px 0; cursor: pointer;
+    }
+    details summary {
+      font-size: 16px; font-weight: 600; color: var(--navy); list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    details summary::after { content: '+'; font-size: 20px; color: var(--orange); font-weight: 400; flex-shrink: 0; }
+    details[open] summary::after { content: '−'; }
+    details p { font-size: 14px; color: var(--gray); line-height: 1.7; margin-top: 12px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); padding: 48px 24px 32px; color: rgba(255,255,255,0.5);
+    }
+    .footer-inner { max-width: 960px; margin: 0 auto; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; margin-bottom: 32px; }
+    .footer-brand { font-size: 15px; font-weight: 800; color: #fff; }
+    .footer-brand span { color: var(--orange); }
+    .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .footer-contact { font-size: 13px; line-height: 1.8; }
+    .footer-contact a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .footer-contact a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    /* ── SUCCESS MSG ── */
+    .success-msg { display: none; color: #4ade80; font-size: 15px; font-weight: 600; margin-top: 16px; }
+  </style>
 </head>
 <body>
-    <nav class="glass">
-        <div class="container">
-            <a href="#" class="logo">Apex Development Group <span>USA</span></a>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#why-us">Why Us</a></li>
-                <li><a href="https://x.com/Oliver_Apexdev" class="btn-primary-sm">Get Started</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <section class="hero">
-        <div class="container">
-            <div class="badge neon-text">Status: 24h Deployment Ready</div>
-            <h1>Premium Newsletter <br><span class="gradient-text">Infrastructure for Creators</span></h1>
-            <p class="lead">We help creators launch, automate, and scale premium newsletter systems with clean setup, smart automations, and growth-focused infrastructure.</p>
-            <div class="hero-btns">
-                <a href="#pricing" class="btn-primary">View Pricing</a>
-                <a href="https://x.com/Oliver_Apexdev" class="btn-secondary">Get Started</a>
-            </div>
-        </div>
-    </section>
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">APEX<span>.</span>AI<br><span style="font-size:10px;font-weight:500;color:rgba(255,255,255,0.4);letter-spacing:0.05em;text-transform:uppercase;">Speed-to-Lead Receptionist</span></div>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#free-audit" class="nav-cta">Get Free Audit</a>
+</nav>
 
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Tech Stack</h2>
-                <p>100% Free-tier setups designed to scale without subscription overhead.</p>
-            </div>
-            <div class="services-grid">
-                <div class="card glass">
-                    <div class="icon">🚀</div>
-                    <h3>Platform Setup</h3>
-                    <p>Beehiiv and Substack setup, domain connection, publication structure, and foundational launch support.</p>
-                </div>
-                <div class="card glass">
-                    <div class="icon">🔌</div>
-                    <h3>Automation</h3>
-                    <p>Smart workflows, onboarding flows, segmentation logic, and time-saving newsletter operations.</p>
-                </div>
-                <div class="card glass">
-                    <div class="icon">📈</div>
-                    <h3>Growth Engine</h3>
-                    <p>Growth systems designed to improve lead capture, audience nurturing, and newsletter expansion.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <div style="position:relative;z-index:1;">
+    <div class="hero-badge">🤖 AI-Powered Phone Answering — Houston, TX</div>
+    <h1>Your Phone Answers<br><em>Every. Single. Call.</em><br>— Even at 2 AM.</h1>
+    <p>HVAC, plumbing, electrical, and roofing contractors lose $45,000–$120,000 per year to missed calls. We fix that. Starting at $149/month.</p>
+    <div class="hero-btns">
+      <a href="#free-audit" class="btn-primary">Get My Free 7-Day Audit →</a>
+      <a href="#calculator" class="btn-secondary">Calculate My Loss</a>
+    </div>
+    <p class="hero-sub">No contract. No setup fee. <strong>7-day free pilot</strong> — cancel any time.</p>
+  </div>
+</section>
 
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Choose Your Tier</h2>
-                <p>Flat-rate pricing. No hidden fees. Delivered in 24-48 hours.</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card glass">
-                    <div class="tier">Basic</div>
-                    <div class="amount"><span class="price">$150</span></div>
-                    <ul class="features">
-                        <li>Platform Baseline Setup</li>
-                        <li>Branding Implementation</li>
-                        <li>3-Email Welcome Sequence</li>
-                        <li>24h Delivery</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/9B6cMX6eqfrm7x35zYaZi02" class="btn-outline">Select Basic</a>
-                </div>
-                <div class="pricing-card glass featured">
-                    <div class="tier">Growth</div>
-                    <div class="amount"><span class="price">$250</span></div>
-                    <ul class="features">
-                        <li>Everything in Basic</li>
-                        <li>Automated Growth Loops</li>
-                        <li>Lead Magnet Setup</li>
-                        <li>48h Delivery</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/4gM00b1Ya92Y6sZd2qaZi01" class="btn-primary">Select Growth</a>
-                </div>
-                <div class="pricing-card glass">
-                    <div class="tier">Migration</div>
-                    <div class="amount"><span class="price">$300+</span></div>
-                    <ul class="features">
-                        <li>Everything in Growth</li>
-                        <li>Full Migration Services</li>
-                        <li>Custom Advanced Templates</li>
-                        <li>72h Delivery</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/7sYbIT46i4MIcRnbYmaZi00" class="btn-outline">Select Migration</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <p>📞 Answers in under 3 seconds &nbsp;|&nbsp; 🌙 24/7/365 — nights, weekends, holidays &nbsp;|&nbsp; 🏠 Built for Houston home service contractors &nbsp;|&nbsp; 📋 Lead capture + appointment booking included</p>
+</div>
 
-    <section id="why-us" class="why-us">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Us?</h2>
-                <p>The premium infrastructure partner for high-level creators.</p>
-            </div>
-            <div class="why-grid">
-                <div class="why-item">
-                    <h4>Speed</h4>
-                    <p>Fully operational in as little as 24 hours.</p>
-                </div>
-                <div class="why-item">
-                    <h4>Clean Infrastructure</h4>
-                    <p>No spaghetti automations. Just robust, scalable tech.</p>
-                </div>
-                <div class="why-item">
-                    <h4>Automation</h4>
-                    <p>Smart workflows that save you 10+ hours per week.</p>
-                </div>
-                <div class="why-item">
-                    <h4>Premium Quality</h4>
-                    <p>Boutique execution designed for elite creators.</p>
-                </div>
-                <div class="why-item">
-                    <h4>Creator-Focused</h4>
-                    <p>We speak your language, not just developer jargon.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PAIN SECTION -->
+<section id="pain">
+  <div class="section-inner">
+    <div class="section-label">The Real Cost of Voicemail</div>
+    <h2>Your competitors are picking up<br>the calls you're sending to voicemail</h2>
+    <p class="section-sub">Every missed call is a lost job. Here's what the numbers actually look like for a typical Houston HVAC contractor:</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-number">27%</div>
+        <div class="pain-label">Calls Go Unanswered</div>
+        <div class="pain-desc">Industry average for home service contractors. After hours, it spikes to 60%+.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-number">85%</div>
+        <div class="pain-label">Never Call Back</div>
+        <div class="pain-desc">Of callers who reach voicemail, 85% hang up and call the next contractor on the list.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-number">$2,800</div>
+        <div class="pain-label">Average HVAC Job Value</div>
+        <div class="pain-desc">Each missed call that never comes back costs you the full job value — not just the lead.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-number">$97K</div>
+        <div class="pain-label">Average Annual Loss</div>
+        <div class="pain-desc">For a contractor getting 12 calls/day missing 28% — that's what's walking out the door.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="final-cta">
-        <div class="container">
-            <div class="cta-content glass">
-                <h2>Ready to Scale Your Audience?</h2>
-                <p>Stop fighting the technical headaches and start building your legacy. We handle the stack, you handle the stories.</p>
-                <a href="https://x.com/Oliver_Apexdev" class="btn-primary">Get Started Now</a>
-            </div>
-        </div>
-    </section>
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="how-bg">
+  <div class="section-inner">
+    <div class="section-label">Simple Setup, Instant Results</div>
+    <h2>Live in 24 hours. No IT required.</h2>
+    <p class="section-sub">Three steps and your AI receptionist is answering calls under your business name.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>We Configure Your AI</h3>
+        <p>We set up the AI with your business name, hours, service area, pricing ranges, and how you want leads delivered. Sounds exactly like your front desk — not a robot.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Forward Your Calls</h3>
+        <p>You set up a simple call forward on your phone for missed calls or after-hours. Takes 60 seconds. Your number stays the same — callers always see YOUR business.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Receive Your Leads</h3>
+        <p>Every captured lead lands in your inbox and texts your cell instantly — name, number, what they need, and whether it's urgent. You call back only the leads that are ready to book.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>Apex Development Group USA | We set up newsletter tech for creators — Beehiiv, Kit, Ghost | Fast setup, fair price</p>
-            <p class="copyright">&copy; 2026. All rights reserved.</p>
-            <div class="socials">
-                <a href="https://x.com/Oliver_Apexdev">Twitter/X (@Oliver_Apexdev)</a>
+<!-- CALCULATOR -->
+<section id="calculator" class="calc-section">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label" style="color:#e8a87c;">Free Business Tool</div>
+    <h2>How much are missed calls<br>actually costing you?</h2>
+    <p class="section-sub" style="margin-left:auto;margin-right:auto;">Enter your numbers and find out in 30 seconds.</p>
+  </div>
+  <div class="calc-frame">
+    <div id="calc-root"></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Simple Pricing</div>
+    <h2>One flat monthly rate.<br>No per-minute fees. No surprises.</h2>
+    <p class="section-sub">Every plan includes 24/7 coverage, your business branding, lead capture, and real-time notifications.</p>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="price-tier">Pilot</div>
+        <div class="price-amount">$149<span>/mo</span></div>
+        <div class="price-desc">Perfect for testing. Start capturing leads this week.</div>
+        <ul class="price-features">
+          <li>24/7 AI answering under your brand</li>
+          <li>Up to 300 minutes/month</li>
+          <li>Lead capture + email/text delivery</li>
+          <li>Custom greeting & business info</li>
+          <li>30-day pilot — cancel any time</li>
+        </ul>
+        <a href="#free-audit" class="price-cta price-cta-outline">Start Pilot →</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="price-tier">Standard</div>
+        <div class="price-amount">$297<span>/mo</span></div>
+        <div class="price-desc">The complete always-on receptionist for growing contractors.</div>
+        <ul class="price-features">
+          <li>24/7 AI answering under your brand</li>
+          <li>Unlimited minutes</li>
+          <li>Lead capture + appointment booking</li>
+          <li>CRM integration (optional)</li>
+          <li>Weekly performance reports</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#free-audit" class="price-cta price-cta-filled">Get Started →</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="price-tier">Premium</div>
+        <div class="price-amount">$497<span>/mo</span></div>
+        <div class="price-desc">Full lead capture suite with follow-up automation.</div>
+        <ul class="price-features">
+          <li>Everything in Standard</li>
+          <li>Automated follow-up texts & emails</li>
+          <li>Multi-location support</li>
+          <li>Custom intake questions per job type</li>
+          <li>Monthly strategy review call</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="#free-audit" class="price-cta price-cta-outline">Learn More →</a>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:13px;color:var(--gray);">
+      Not sure which plan fits? Start with the free 7-day audit — we'll recommend the right tier based on your call volume.
+    </p>
+  </div>
+</section>
+
+<!-- FREE AUDIT CTA -->
+<section id="free-audit" class="audit-section">
+  <div class="section-label" style="color:#e8a87c;">Zero Risk</div>
+  <h2>Get Your Free 7-Day Missed Call Audit</h2>
+  <p>We'll run your AI receptionist free for 7 days on your actual phone number. See exactly how many calls you recover and what they're worth — then decide if you want to keep it.</p>
+  <form class="audit-form" onsubmit="handleAuditSubmit(event)">
+    <input type="text" id="audit-name" placeholder="Your name" required />
+    <input type="tel" id="audit-phone" placeholder="Business phone" required />
+    <input type="email" id="audit-email" placeholder="Your email" required style="flex-basis:100%;min-width:unset;" />
+    <button type="submit" style="width:100%;">Claim My Free 7-Day Audit →</button>
+  </form>
+  <div class="success-msg" id="audit-success">
+    ✅ Request sent! Keith will personally reach out within 24 hours to get you set up.
+  </div>
+  <p class="audit-note">Or call/text Keith directly: <strong style="color:rgba(255,255,255,0.7)">(281) 714-1600</strong> &nbsp;·&nbsp; apexdevelopmentgroupusa@gmail.com</p>
+</section>
+
+<!-- TRUST / FOUNDER -->
+<section class="trust-section">
+  <div class="section-inner">
+    <div class="trust-grid">
+      <div>
+        <div class="section-label">Why Apex</div>
+        <h2>Built by a contractor.<br>Powered by AI.</h2>
+        <p class="section-sub" style="margin-bottom:32px;">I spent 24 years managing residential construction for Meritage and Perry Homes. I know exactly what a missed call costs — because I've seen it.</p>
+        <div class="trust-items">
+          <div class="trust-item">
+            <div class="trust-icon">🤝</div>
+            <div class="trust-text">
+              <h4>No Long-Term Contracts</h4>
+              <p>Month-to-month. Cancel any time. The service has to earn your business every month — that's how I prefer it.</p>
             </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">🏷️</div>
+            <div class="trust-text">
+              <h4>Your Brand, Your Identity</h4>
+              <p>Callers always hear your business name. The AI presents itself as your receptionist — not ours.</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">📍</div>
+            <div class="trust-text">
+              <h4>Houston-Based Support</h4>
+              <p>You're not calling a help desk in another time zone. You're calling Keith — Houston, TX — directly.</p>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="founder-block">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:18px;">👷</div>
+        <div class="founder-name">Keith Douglas</div>
+        <div class="founder-title">Founder & CEO, Apex Development Group USA</div>
+        <div class="founder-bio">
+          24-year veteran of residential construction management. Managed $50M+ in projects for Meritage Homes and Perry Homes in Houston, TX.<br><br>
+          After transitioning into AI implementation, I built this service specifically for the contractors I used to work alongside — the guys who are too busy running jobs to sit by the phone all day.<br><br>
+          <strong style="color:var(--navy);">This service exists because I know what a missed call really costs.</strong>
+        </div>
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid #e8edf3;">
+          <a href="tel:2817141600" style="color:var(--navy);text-decoration:none;font-weight:700;font-size:15px;">📞 (281) 714-1600</a><br>
+          <a href="mailto:apexdevelopmentgroupusa@gmail.com" style="color:var(--blue);text-decoration:none;font-size:13px;margin-top:4px;display:inline-block;">apexdevelopmentgroupusa@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-label">Common Questions</div>
+    <h2 style="text-align:center;">Everything you need to know</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Does the AI sound like a robot? Will my customers know?</summary>
+        <p>Modern AI voice technology is indistinguishable from a human receptionist. Your customers won't know unless you tell them — and we'll help you craft a disclosure if you want one. The AI greets callers with your business name and speaks naturally.</p>
+      </details>
+      <details>
+        <summary>What happens after the 7-day free audit?</summary>
+        <p>After 7 days, you'll see a full report of every call captured, every lead collected, and the estimated revenue recovered. Then you decide if you want to continue. No hard sell — the numbers speak for themselves.</p>
+      </details>
+      <details>
+        <summary>Do I have to change my phone number?</summary>
+        <p>No. You keep your existing business number. We use a simple call-forward setting on your phone for missed calls and after-hours calls. Takes about 60 seconds to set up and can be toggled on/off any time.</p>
+      </details>
+      <details>
+        <summary>What if I'm already using an answering service?</summary>
+        <p>AI is typically faster (answers in under 3 seconds vs. 30–60 seconds for a live answering service), available 24/7/365 without per-minute fees, and never has bad days. Many contractors use it as a complement or full replacement depending on call volume.</p>
+      </details>
+      <details>
+        <summary>Which industries does this work for?</summary>
+        <p>We focus on home service contractors: HVAC, plumbing, electrical, roofing, general contracting, pest control, landscaping, and similar trades. If customers call to request service, this works for you.</p>
+      </details>
+      <details>
+        <summary>Is there a setup fee?</summary>
+        <p>No setup fee on any plan. The free 7-day audit is completely free — no credit card required. If you continue, you'll pay the flat monthly rate starting on day 8.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">APEX DEVELOPMENT GROUP USA<span>, LLC</span></div>
+        <div class="footer-tagline">AI Receptionist Solutions for Home Service Contractors · Houston, TX</div>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:2817141600">(281) 714-1600</a><br>
+        <a href="mailto:apexdevelopmentgroupusa@gmail.com">apexdevelopmentgroupusa@gmail.com</a><br>
+        Houston, Texas
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Apex Development Group USA, LLC. All rights reserved.</span>
+      <span>Stats sourced from Invoca (2025), Housecall Pro, Ambs Call Center. Individual results vary.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- REACT CALCULATOR (embedded) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const INDUSTRY_DEFAULTS = {
+  hvac:        { name: "HVAC",                 avgJob: 2800,  callsPerDay: 12, missRate: 28 },
+  plumbing:    { name: "Plumbing",             avgJob: 425,   callsPerDay: 10, missRate: 30 },
+  electrical:  { name: "Electrical",           avgJob: 650,   callsPerDay: 8,  missRate: 25 },
+  roofing:     { name: "Roofing",              avgJob: 8500,  callsPerDay: 8,  missRate: 32 },
+  general:     { name: "General Contracting",  avgJob: 12000, callsPerDay: 6,  missRate: 27 },
+  other:       { name: "Other Trade",          avgJob: 500,   callsPerDay: 10, missRate: 27 },
+};
+
+const NO_CALLBACK_RATE = 0.85;
+const CONVERT_RATE = 0.30;
+
+function AnimatedNumber({ value, prefix = "", suffix = "", duration = 1200 }) {
+  const [display, setDisplay] = useState(0);
+  const ref = useRef(null);
+  useEffect(() => {
+    if (value === 0) { setDisplay(0); return; }
+    const startTime = performance.now();
+    const animate = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(eased * value));
+      if (progress < 1) ref.current = requestAnimationFrame(animate);
+    };
+    ref.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(ref.current);
+  }, [value, duration]);
+  return React.createElement(React.Fragment, null, prefix + display.toLocaleString() + suffix);
+}
+
+function Slider({ label, value, onChange, min, max, step = 1, unit = "", hint }) {
+  const pct = ((value - min) / (max - min)) * 100;
+  return React.createElement("div", { style: { marginBottom: 24 } },
+    React.createElement("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 6 } },
+      React.createElement("label", { style: { fontSize: 13, fontWeight: 600, color: "#1B3A5C" } }, label),
+      React.createElement("span", { style: { fontSize: 20, fontWeight: 800, color: "#C45A2D" } },
+        unit === "$" ? `$${value.toLocaleString()}` : `${value}${unit}`
+      )
+    ),
+    React.createElement("input", {
+      type: "range", min, max, step, value, onChange: e => onChange(Number(e.target.value)),
+      style: {
+        width: "100%", height: 6, borderRadius: 3, appearance: "none", outline: "none", cursor: "pointer",
+        background: `linear-gradient(to right, #C45A2D 0%, #C45A2D ${pct}%, #d5dbe3 ${pct}%, #d5dbe3 100%)`
+      }
+    }),
+    hint && React.createElement("p", { style: { fontSize: 12, color: "#8899aa", margin: "4px 0 0", fontStyle: "italic" } }, hint)
+  );
+}
+
+function Calculator() {
+  const [industry, setIndustry] = useState("hvac");
+  const [callsPerDay, setCallsPerDay] = useState(12);
+  const [missRate, setMissRate] = useState(28);
+  const [avgJob, setAvgJob] = useState(2800);
+  const [email, setEmail] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [showEmailGate, setShowEmailGate] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+
+  useEffect(() => {
+    const d = INDUSTRY_DEFAULTS[industry];
+    setCallsPerDay(d.callsPerDay); setMissRate(d.missRate); setAvgJob(d.avgJob);
+  }, [industry]);
+
+  const missedPerDay   = callsPerDay * (missRate / 100);
+  const missedPerMonth = Math.round(missedPerDay * 22);
+  const lostLeads      = Math.round(missedPerMonth * NO_CALLBACK_RATE);
+  const lostJobs       = Math.round(lostLeads * CONVERT_RATE);
+  const monthlyLoss    = lostJobs * avgJob;
+  const annualLoss     = monthlyLoss * 12;
+  const weeklyLoss     = Math.round(monthlyLoss / 4.33);
+
+  const handleCalcClick = () => setShowEmailGate(true);
+
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    if (!email) return;
+    // Post to FormSubmit.co (no backend needed)
+    fetch("https://formsubmit.co/ajax/apexdevelopmentgroupusa@gmail.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        _subject: "New Calculator Lead",
+        email,
+        industry: INDUSTRY_DEFAULTS[industry].name,
+        annual_loss: `$${annualLoss.toLocaleString()}`,
+        calls_per_day: callsPerDay,
+        miss_rate: `${missRate}%`,
+        avg_job: `$${avgJob.toLocaleString()}`
+      })
+    }).catch(() => {}); // silent fail is fine
+    setEmailSubmitted(true);
+    setShowEmailGate(false);
+    setShowResults(true);
+    setTimeout(() => {
+      document.getElementById("calc-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
+
+  const s = { fontFamily: "'DM Sans', Arial, sans-serif" };
+
+  return React.createElement("div", { style: { ...s, padding: "0 0 24px" } },
+    /* Card */
+    React.createElement("div", {
+      style: { background: "#fff", borderRadius: 16, padding: "32px 28px", boxShadow: "0 8px 32px rgba(0,0,0,0.1)", border: "1px solid #e2e8f0" }
+    },
+      /* Industry select */
+      React.createElement("div", { style: { marginBottom: 24 } },
+        React.createElement("label", { style: { fontSize: 13, fontWeight: 600, color: "#1B3A5C", display: "block", marginBottom: 8 } }, "What type of business do you run?"),
+        React.createElement("select", {
+          value: industry, onChange: e => setIndustry(e.target.value),
+          style: { width: "100%", padding: "12px 14px", fontSize: 15, borderRadius: 8, border: "2px solid #d5dbe3", fontFamily: "'DM Sans', Arial, sans-serif", fontWeight: 500, outline: "none", cursor: "pointer" }
+        },
+          Object.entries(INDUSTRY_DEFAULTS).map(([k, v]) => React.createElement("option", { key: k, value: k }, v.name))
+        )
+      ),
+      React.createElement(Slider, { label: "Calls per day", value: callsPerDay, onChange: setCallsPerDay, min: 1, max: 50, hint: "Include all inbound: leads, customers, inquiries" }),
+      React.createElement(Slider, { label: "% of calls you miss", value: missRate, onChange: setMissRate, min: 5, max: 80, unit: "%", hint: "Industry average: 27%. Be honest — it's probably higher" }),
+      React.createElement(Slider, { label: "Average job value", value: avgJob, onChange: setAvgJob, min: 100, max: 25000, step: 50, unit: "$", hint: "Total revenue per completed job including parts & labor" }),
+
+      /* CTA button */
+      !showEmailGate && !showResults && React.createElement("button", {
+        onClick: handleCalcClick,
+        style: { width: "100%", padding: "16px", fontSize: 17, fontWeight: 700, background: "linear-gradient(135deg,#C45A2D,#a8441e)", color: "#fff", border: "none", borderRadius: 10, cursor: "pointer", letterSpacing: "0.02em", boxShadow: "0 4px 16px rgba(196,90,45,0.3)", marginTop: 8 }
+      }, "Calculate My Revenue Loss →"),
+
+      /* Email gate */
+      showEmailGate && React.createElement("form", { onSubmit: handleEmailSubmit, style: { marginTop: 16 } },
+        React.createElement("p", { style: { fontSize: 14, fontWeight: 600, color: "#1B3A5C", marginBottom: 12 } }, "Where should we send your results?"),
+        React.createElement("input", {
+          type: "email", placeholder: "your@email.com", value: email, required: true,
+          onChange: e => setEmail(e.target.value),
+          style: { width: "100%", padding: "13px 14px", fontSize: 15, borderRadius: 8, border: "2px solid #3366FF", marginBottom: 10, fontFamily: "'DM Sans', Arial, sans-serif", outline: "none" }
+        }),
+        React.createElement("button", {
+          type: "submit",
+          style: { width: "100%", padding: "14px", fontSize: 16, fontWeight: 700, background: "linear-gradient(135deg,#C45A2D,#a8441e)", color: "#fff", border: "none", borderRadius: 10, cursor: "pointer" }
+        }, "Show My Results →"),
+        React.createElement("p", { style: { fontSize: 11, color: "#9aabbC", marginTop: 8, textAlign: "center" } }, "No spam. Unsubscribe any time.")
+      )
+    ),
+
+    /* Results */
+    showResults && React.createElement("div", { id: "calc-results", style: { animation: "fadeSlideUp 0.5s ease-out" } },
+      /* Big number */
+      React.createElement("div", {
+        style: { background: "linear-gradient(135deg,#0f1e2e,#1a3350)", borderRadius: 16, padding: "36px 28px", textAlign: "center", marginTop: 16 }
+      },
+        React.createElement("div", { style: { fontSize: 12, fontWeight: 700, color: "#8ca8c4", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 } }, "Estimated Annual Revenue Loss"),
+        React.createElement("div", { style: { fontSize: 52, fontWeight: 800, color: "#e8734a", lineHeight: 1 } },
+          React.createElement(AnimatedNumber, { value: annualLoss, prefix: "$", duration: 1800 })
+        ),
+        React.createElement("div", { style: { fontSize: 14, color: "#6a8aaa", marginTop: 10 } },
+          "That's ", React.createElement("span", { style: { color: "#e8a87c", fontWeight: 700 } }, `$${weeklyLoss.toLocaleString()} every week`), " walking out the door"
+        )
+      ),
+      /* Stat cards */
+      React.createElement("div", { style: { display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 } },
+        [
+          { icon: "📞", label: "Missed Calls/Mo", value: missedPerMonth, color: "#1a3350", sub: "unanswered" },
+          { icon: "🚫", label: "Gone Forever", value: lostLeads, color: "#C45A2D", sub: "85% won't call back" },
+          { icon: "💸", label: "Lost Jobs/Mo", value: lostJobs, color: "#b5342a", sub: `@ $${avgJob.toLocaleString()} avg` },
+        ].map(({ icon, label, value, color, sub }) =>
+          React.createElement("div", { key: label, style: { flex: 1, minWidth: 120, background: "#fff", borderRadius: 12, padding: "20px 16px", textAlign: "center", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", border: "1px solid #e8ecf0" } },
+            React.createElement("div", { style: { fontSize: 24, marginBottom: 6 } }, icon),
+            React.createElement("div", { style: { fontSize: 11, fontWeight: 700, color: "#6b7a8a", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6 } }, label),
+            React.createElement("div", { style: { fontSize: 28, fontWeight: 800, color, lineHeight: 1 } },
+              React.createElement(AnimatedNumber, { value })
+            ),
+            React.createElement("div", { style: { fontSize: 11, color: "#8899aa", marginTop: 4 } }, sub)
+          )
+        )
+      ),
+      /* CTA */
+      React.createElement("div", {
+        style: { background: "#fff", borderRadius: 16, padding: "28px", textAlign: "center", boxShadow: "0 4px 16px rgba(0,0,0,0.06)", border: "2px solid #C45A2D", marginTop: 12 }
+      },
+        React.createElement("h3", { style: { fontSize: 19, fontWeight: 700, color: "#1B3A5C", marginBottom: 8 } }, "Let's recover that revenue →"),
+        React.createElement("p", { style: { fontSize: 14, color: "#5a6a7a", marginBottom: 18, lineHeight: 1.6 } }, "Free 7-day pilot on your real phone number. No setup fee. No contract."),
+        React.createElement("a", {
+          href: "#free-audit",
+          style: { display: "inline-block", background: "linear-gradient(135deg,#C45A2D,#a8441e)", color: "#fff", padding: "14px 32px", borderRadius: 10, fontSize: 15, fontWeight: 700, textDecoration: "none" }
+        }, "Book My Free 7-Day Audit"),
+        React.createElement("p", { style: { fontSize: 12, color: "#8899aa", marginTop: 12 } }, "Or call Keith: (281) 714-1600")
+      )
+    )
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("calc-root"));
+root.render(React.createElement(Calculator));
+</script>
+
+<!-- FORM SUBMIT + MISC JS -->
+<script>
+function handleAuditSubmit(e) {
+  e.preventDefault();
+  const name  = document.getElementById("audit-name").value;
+  const phone = document.getElementById("audit-phone").value;
+  const email = document.getElementById("audit-email").value;
+  fetch("https://formsubmit.co/ajax/apexdevelopmentgroupusa@gmail.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({ _subject: "New 7-Day Audit Request", name, phone, email })
+  }).catch(() => {});
+  document.querySelector(".audit-form").style.display = "none";
+  document.getElementById("audit-success").style.display = "block";
+  // Fallback mailto
+  setTimeout(() => {
+    window.location.href = `mailto:apexdevelopmentgroupusa@gmail.com?subject=Free%207-Day%20Audit%20Request&body=Name%3A%20${encodeURIComponent(name)}%0APhone%3A%20${encodeURIComponent(phone)}%0AEmail%3A%20${encodeURIComponent(email)}`;
+  }, 800);
+}
+</script>
 </body>
 </html>
