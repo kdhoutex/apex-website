@@ -221,7 +221,13 @@ function laneOf(j){
   if (trk.startsWith("lane2")) return "Lane 2";
   return "";
 }
-function applyUrlOf(j){ return j.apply_url || j.apply_url_raw || ""; }
+function applyUrlOf(j){
+  const raw = (j.apply_url_raw || "").trim();
+  if (raw.startsWith("http")) return raw;
+  const main = (j.apply_url || "").trim();
+  if (main.startsWith("http")) return main;
+  return "";
+}
 function isRemote(j){
   const v = (j.remote||"").trim().toLowerCase();
   if (v==="true"||v==="yes"||v==="1"||v==="remote") return true;
